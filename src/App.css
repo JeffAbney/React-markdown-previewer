@@ -40,7 +40,7 @@ body {
   background-color: #ad343e;
   border: none;
   overflow-y: scroll;
-  font-size: 1.2em;
+  font-size: 1.3em;
 }
 
 #preview{
@@ -79,3 +79,10 @@ table {
     border-top: 1px solid #ccc; }
     table tr:nth-child(2n) {
 background-color: #f8f8f8; }
+
+.credit{
+  color: #ad343e;
+}
+  .credit a{
+    color: #ad343e;
+  }

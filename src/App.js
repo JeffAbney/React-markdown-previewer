@@ -75,9 +75,11 @@ And here. | Okay. | I think we get it.\n\
     }
 
     getMarkdownText() {
-    var rawMarkup = marked(this.state.input, {gfm: true, tables:true, sanitize: true});
-    return { __html: rawMarkup };
+    var rawMarkup = marked(this.state.input, {breaks:true, sanitize: true});
+    var pattern = /a href=/g;
+    return { __html: rawMarkup.replace(pattern,"a target='_blank' href=") };
   }
+
 
   render() {
     return (
@@ -90,6 +92,9 @@ And here. | Okay. | I think we get it.\n\
           <h1 className="Box-title">Preview</h1>
           <div dangerouslySetInnerHTML={this.getMarkdownText()} className="Text-area"/>
         </div>
+        <div className="credit">
+      <p>Designed and Developed by <a href="mailto: jeffmabney@gmail.com">Jeff Abney</a></p>
+    </div>
       </div>
     );
   }
