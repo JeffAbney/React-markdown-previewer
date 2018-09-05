@@ -15,35 +15,54 @@ body {
 .Text-box {
   width: 80%;
   height: 300px;
-  background-color: #474747;
+  background-color: #FFF;
   margin-top: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.Box-title {
-  height: 24px;
-  padding: 3px;
+.header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 32px;
   border: 1px solid black;
 }
 
-.Text-box h1{
+.Box-title {
+  text-align: center;
+}
+
+.btn-resize {
+  height: 25px;
+  width: 25px;
+  background-color: #fff;
+  margin-right: 5px;
+  padding: 0;
+}
+  .btn-resize img {
+
+    height: 20px;
+    width: 20px;
+  }
+
+.Text-box h1 {
   font-size: 18px;
-  margin-top: 0;
+  margin: 0;
   width: 100%;
 }
 
-.Text-area{
+.Text-area {
   width: 85%;
   height: 75%;
-  background-color: #ad343e;
+  background-color: #ece2c6;
   border: none;
   overflow-y: scroll;
   font-size: 1.3em;
 }
 
-#preview{
+#preview {
   
 }
 
@@ -80,9 +99,9 @@ table {
     table tr:nth-child(2n) {
 background-color: #f8f8f8; }
 
-.credit{
+.credit {
   color: #ad343e;
 }
-  .credit a{
+  .credit a {
     color: #ad343e;
   }

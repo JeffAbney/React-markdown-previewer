@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg'; // <img src={logo} className="App-logo" alt="logo" />
+import maxWin from './maximize-window.svg';
+import shrinkWin from './shrink-window.svg';
 import './App.css';
 import marked from 'marked';
 
@@ -57,22 +58,39 @@ And here. | Okay. | I think we get it.\n\
 
 //END STUPID LONG STRING FOR CONST "FILLER"
 
+
+
     this.state = {
       input: FILLER,
+      editorSizeBig: false,
+      previewSizeBig: false,
     }
 
+    
 
     this.handleChange = this.handleChange.bind(this);
-
+    this.toggleEditorSize = this.toggleEditorSize.bind(this);
+    this.togglePreviewSize = this.togglePreviewSize.bind(this);
   }
-
-
 
     handleChange(event){
       this.setState({
         input: event.target.value
       });
     }
+
+    toggleEditorSize(){
+      this.setState({
+        editorSizeBig: !this.state.editorSizeBig,
+      })
+    }
+
+    togglePreviewSize(){
+      this.setState({
+        previewSizeBig: !this.state.previewSizeBig,
+      })
+    }
+
 
     getMarkdownText() {
     var rawMarkup = marked(this.state.input, {breaks:true, sanitize: true});
@@ -82,15 +100,28 @@ And here. | Okay. | I think we get it.\n\
 
 
   render() {
+   
+    const editorCheck = this.state.editorSizeBig ? shrinkWin : maxWin;
+    const previewCheck = this.state.previewSizeBig ? shrinkWin : maxWin;
+
+    const editorBoxSize = this.state.editorSizeBig ? {height: 600} : {};
+    const previewBoxSize = this.state.previewSizeBig ? {height: 600} : {};
+
     return (
       <div className="App">
-        <form className="Text-box Markdown-editor" id="editor">
-          <h1 className="Box-title">Editor</h1>
-          <textarea value={this.state.input} onChange={this.handleChange} className="Text-area"/>
+        <form className="Text-box Markdown-editor" style={editorBoxSize}>
+          <div className="header">
+            <h1 className="Box-title">Editor</h1>
+            <button type="button" className="btn-resize" onClick={this.toggleEditorSize} ><img src={editorCheck} className="window-icon" alt="shrink or maximize window" /></button>
+          </div>
+          <textarea value={this.state.input} onChange={this.handleChange} className="Text-area" id="editor"/>
         </form>
-        <div className="Text-box Markdown-preview" id="preview">
-          <h1 className="Box-title">Preview</h1>
-          <div dangerouslySetInnerHTML={this.getMarkdownText()} className="Text-area"/>
+        <div className="Text-box Markdown-preview" style={previewBoxSize}>
+          <div className="header">
+            <h1 className="Box-title">Preview</h1>
+            <button type="button" className="btn-resize" onClick={this.togglePreviewSize} ><img src={previewCheck} className="window-icon" alt="shrink or maximize window" /></button>
+          </div>
+          <div id="preview" dangerouslySetInnerHTML={this.getMarkdownText()} className="Text-area"/>
         </div>
         <div className="credit">
       <p>Designed and Developed by <a href="mailto: jeffmabney@gmail.com">Jeff Abney</a></p>
