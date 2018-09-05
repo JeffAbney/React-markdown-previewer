@@ -3,6 +3,7 @@ import logo from './logo.svg'; // <img src={logo} className="App-logo" alt="logo
 import './App.css';
 import marked from 'marked';
 
+
 class App extends Component {
   constructor (props){
     super(props);
@@ -74,7 +75,7 @@ And here. | Okay. | I think we get it.\n\
     }
 
     getMarkdownText() {
-    var rawMarkup = marked(this.state.input, {sanitize: true});
+    var rawMarkup = marked(this.state.input, {gfm: true, tables:true, sanitize: true});
     return { __html: rawMarkup };
   }
 

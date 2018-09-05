@@ -46,3 +46,36 @@ body {
 #preview{
   
 }
+
+blockquote {
+    color: #666;
+    margin: 0;
+    padding-left: 3em;
+    border-left: 0.5em #eee solid;
+}
+
+code {
+    background: #eee;
+    padding: 0 5px;
+}
+
+pre code {
+    display: block;
+}
+
+table {
+  display: block;
+  width: 100%;
+  overflow: auto; }
+  table th {
+    font-weight: 700;
+    padding: 6px 13px;
+    border: 1px solid #ddd; }
+  table td {
+    padding: 6px 13px;
+    border: 1px solid #ddd; }
+  table tr {
+    background-color: #fff;
+    border-top: 1px solid #ccc; }
+    table tr:nth-child(2n) {
+background-color: #f8f8f8; }
